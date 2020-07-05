@@ -21,5 +21,25 @@ echo "$message <br>";
 echo "$email <br>";
 
 
+$sendTo = "nick_cloy@hotmail.com";
+$subject = "Test email from homepage";
+
+$emailMessage = "$fname $lname <br> \n";
+$emailMessage .= "$message \n";
+$emailMessage .= "from: $email\n";
+
+$headers = array(
+    'From' => '$email',
+    'Reply-To' => '$email',
+    'X-Mailer' => 'PHP/' . phpversion()
+);
+
+if (mail($sendTo, $subject, $emailMessage, $headers)) {
+    echo "Sent";
+} else {
+    echo "Fail";
+}
+
+
 
 ?>
