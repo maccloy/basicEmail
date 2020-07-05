@@ -1,13 +1,15 @@
 # basicEmail
 basic email form using PHP
 
+files
+
 basicform.html
     simple form to show the html code best
 
 neatform.html
     nicer looking form but still quite simple html and css
 
-bootstrapform.php
+bootstrapform.html
     form using bootstrap to try to look nice
 
 index.html
@@ -19,3 +21,5 @@ email.php
 bootstrapform.css
     css for the bootstrap version
 
+bootstrapform.js
+    javascript for the bootstrap version
