@@ -2,17 +2,87 @@
 <html>
 <head>
 <title>Basic Email</title>
+<style>
+    .table {
+        display: table;
+        max-width: 400px;
+    }
+
+    .tr {
+        display: table-row;
+        width: 100%;
+    }
+
+    .td {
+        display: table-cell;
+        width: 100%;
+        padding: 5px;
+        text-align: left;
+        vertical-align: middle;
+    }
+
+    input.entry, textarea {
+        width: 300px;
+    }
+
+    textarea {
+        height: 100px;
+    }
+
+    input.button {
+        width: 150px;
+    }
+</style>
 </head>
 <body>
 
 <h1>Basic email demonstration</h1>
 
 <form method="POST" action="email.php">
-first Name <input type="text" name="fname"><br>
-last Name <input type="text" name="lname"><br>
-Email <input type="email" name="email"><br>
-Message <textarea name="message"></textarea><br>
-<input type="submit"><input type="reset">
+    <div class="table">
+        <div class="tr">
+            <div class="td">
+                First Name 
+            </div>
+            <div class="td">
+                <input type="text" name="fname" class="entry">
+            </div>
+        </div>
+        <div class="tr">
+            <div class="td">
+                Last Name
+            </div>
+            <div class="td">
+                <input type="text" name="lname" class="entry">
+            </div>
+        </div>
+        <div class="tr">
+            <div class="td">
+                Email 
+            </div>
+            <div class="td">
+                <input type="email" name="email" class="entry">
+            </div>
+        </div>
+        <div class="tr">
+            <div class="td">
+                Message
+            </div>
+            <div class="tr">
+                <div class="td">
+                    <textarea name="message"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="tr">
+            <div class="td">
+            </div>
+            <div class="td">
+                <input type="submit" class="button">
+                <input type="reset" class="button">
+            </div>
+        </div>
+    </div>
 </form>
 
 </body>
