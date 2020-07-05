@@ -4,28 +4,6 @@
 <title>Basic Email</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 <style>
-    .table {
-        display: table;
-        max-width: 400px;
-    }
-
-    .tr {
-        display: table-row;
-        width: 100%;
-    }
-
-    .td {
-        display: table-cell;
-        width: 100%;
-        padding: 5px;
-        text-align: left;
-        vertical-align: middle;
-    }
-
-    .td.buttons {
-        text-align: center;
-    }
-
     input.entry, textarea {
         width: 300px !important;
     }
@@ -57,94 +35,32 @@
         width: 300px;
 
     }
+
 </style>
 </head>
-<body>
-
-
-
-<form method="POST" action="email.php" id="emailForm">
-    <h1>Basic Email Demonstration</h1>
-    <div id="form">
-    <div class="form-group">
-        <label for="fname">First Name</label>
-        <input type="text" name="fname" class="entry form-control">
-    </div>
-    <div class="form-group">
-        <label for="lname">Last Name</label>
-        <input type="text" name="lname" class="entry form-control">
-    </div>
-    <div class="form-group">
-        <label for="email" aria-describedby="emailHelp">Email</label>
-        <input type="email" name="email" class="entry form-control">
-        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-    </div>
-    <div class="form-group">
-        <input type="submit" class="button btn btn-primary disabled">
-        <input type="reset" class="button btn btn-danger">
-    </div>
-</div>
-</form>
-
-
-
-
-
-
-
-
-
-
-
-
-<!--
-<form method="POST" action="email.php">
-    <div class="table">
-        <div class="tr">
-            <div class="td">
-                First Name 
-            </div>
-            <div class="td">
+<body class="bg-light">
+    <!-- wallpaper from https://wallpaperaccess.com/old-writing -->
+    <form method="POST" action="email.php" id="emailForm">
+        <h1>Basic Email Demonstration</h1>
+        <div id="form">
+            <div class="form-group">
+                <label for="fname">First Name</label>
                 <input type="text" name="fname" class="entry form-control">
             </div>
-        </div>
-        <div class="tr">
-            <div class="td">
-                Last Name
-            </div>
-            <div class="td">
+            <div class="form-group">
+                <label for="lname">Last Name</label>
                 <input type="text" name="lname" class="entry form-control">
             </div>
-        </div>
-        <div class="tr">
-            <div class="td">
-                Email 
-            </div>
-            <div class="td">
+            <div class="form-group">
+                <label for="email" aria-describedby="emailHelp">Email</label>
                 <input type="email" name="email" class="entry form-control">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="form-group">
+                <input type="submit" class="button btn btn-primary disabled">
+                <input type="reset" class="button btn btn-danger">
             </div>
         </div>
-        <div class="tr">
-            <div class="td">
-                Message
-            </div>
-            <div class="tr">
-                <div class="td">
-                    <textarea name="message" class="form-control"></textarea>
-                </div>
-            </div>
-        </div>
-        <div class="tr">
-            <div class="td">
-            </div>
-            <div class="td buttons">
-                <input type="submit" class="button btn btn-primary">
-                <input type="reset" class="button btn btn-primary">
-            </div>
-        </div>
-    </div>
-</form>
--->
-
+    </form>
 </body>
 </html>
