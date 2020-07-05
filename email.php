@@ -29,18 +29,21 @@ $subject = "Test email from homepage";
 // Compose the message body
 $emailMessage = "";
 
-
 $emailMessage .= "<style>";
+
 $emailMessage .= "div {";
 $emailMessage .= "margin-top: 10px;";
 $emailMessage .= "}";
+
 $emailMessage .= "p {";
 $emailMessage .= "margin-left: 25px;";
 $emailMessage .= "color: blue;";
 $emailMessage .= "}";
+
 $emailMessage .= "a {";
 $emailMessage .= "font-style: italic;";
 $emailMessage .= "}";
+
 $emailMessage .= "</style>";
 
 $emailMessage .= "<div>";
@@ -53,18 +56,7 @@ $emailMessage .= "<h3>Your email address</h3>";
 $emailMessage .= "<p>$email <a href='mailto:$fname $lname <$email>'>Mail yourself back!</a></p>";
 $emailMessage .= "</div>";
 
-
 // Set the headers so the receiver knows who sent it and can reply to them
-
-$headers = array(
-    'From' => $email,
-    'Reply-To' => $email,
-    'X-Mailer' => 'PHP/' . phpversion()
-);
-
-
-//echo $emailMessage;
-
 $headers = array(
     "MIME-Version" => "1.0",
     "Content-type" => "text/html; charset=iso-8859-1",
