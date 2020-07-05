@@ -18,24 +18,59 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 }
 
 // Sanitise the rest of the form input
-$fname = filter_var($fname, FILTER_SANITIZE_STRING, FILTER_FLAG_ENCODE_HIGH);
-$lname = filter_var($lname, FILTER_SANITIZE_STRING, FILTER_FLAG_ENCODE_HIGH);
-$message = filter_var($message, FILTER_SANITIZE_STRING, FILTER_FLAG_ENCODE_HIGH);
+$fname = filter_var($fname, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+$lname = filter_var($lname, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+$message = filter_var($message, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
 // Set where to send the email and the subject line
 $sendTo = "nick_cloy@hotmail.com";
 $subject = "Test email from homepage";
 
 // Compose the message body
-$emailMessage = "$fname $lname \n";
-$emailMessage .= "$message \n";
-$emailMessage .= "from: $email\n";
+$emailMessage = "";
+
+
+$emailMessage .= "<style>";
+$emailMessage .= "div {";
+$emailMessage .= "margin-top: 10px;";
+$emailMessage .= "}";
+$emailMessage .= "p {";
+$emailMessage .= "margin-left: 25px;";
+$emailMessage .= "color: blue;";
+$emailMessage .= "}";
+$emailMessage .= "a {";
+$emailMessage .= "font-style: italic;";
+$emailMessage .= "}";
+$emailMessage .= "</style>";
+
+$emailMessage .= "<div>";
+$emailMessage .= "<h2>Thank you for using my demo email script!</h2>";
+$emailMessage .= "<h3>Your name</h3>";
+$emailMessage .= "<p>$fname $lname</p>";
+$emailMessage .= "<h3>Your message</h3>";
+$emailMessage .= "<p>$message</p>";
+$emailMessage .= "<h3>Your email address</h3>";
+$emailMessage .= "<p>$email <a href='mailto:$fname $lname <$email>'>Mail yourself back!</a></p>";
+$emailMessage .= "</div>";
+
 
 // Set the headers so the receiver knows who sent it and can reply to them
+
 $headers = array(
     'From' => $email,
     'Reply-To' => $email,
     'X-Mailer' => 'PHP/' . phpversion()
+);
+
+
+//echo $emailMessage;
+
+$headers = array(
+    "MIME-Version" => "1.0",
+    "Content-type" => "text/html; charset=iso-8859-1",
+    "From" => "$fname $lname <$email>",
+    "Reply-To" => "$fname $lname <$email>",
+    "X-Mailer" => "PHP/" . phpversion()
 );
 
 // If there are no error messages then send the email
