@@ -39,7 +39,7 @@ $headers = array(
 );
 
 // If there are no error messages then send the email
-if ($errors != "") {
+if ($errors == "") {
     // Send the email
     if (mail($sendTo, $subject, $emailMessage, $headers)) {
         // email sent sucessfully
