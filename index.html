@@ -3,61 +3,100 @@
 <head>
 <title>Basic Email</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-<style>
-    input.entry, textarea {
-        width: 300px !important;
+<link rel="stylesheet" href="bootstrapform.css">
+<script>
+
+function validate() {
+    var form = document.forms["emailForm"];
+
+    var fname = form.fname;
+    var lname = form.lname;
+    var email = form.email;
+    var message = form.message;
+
+    var complete = true;
+
+    if (fname.value == "") {
+        fname.classList.add("is-invalid");
+        fname.classList.remove("is-valid");
+        complete = false
+    } else {
+        fname.classList.add("is-valid");
+        fname.classList.remove("is-invalid");
     }
 
-    textarea {
-        height: 100px;
+    if (lname.value == "") {
+        lname.classList.add("is-invalid");
+        lname.classList.remove("is-valid");
+        complete = false
+    } else {
+        lname.classList.add("is-valid");
+        lname.classList.remove("is-invalid");
     }
 
-    input.button {
-        width: 145px;
+    if (email.value == "")  {
+        email.classList.add("is-invalid");
+        email.classList.remove("is-valid");
+        complete = false
+    } else {
+        email.classList.add("is-valid");
+        email.classList.remove("is-invalid");
     }
 
-    #emailForm {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        margin-right: -50%;
-        transform: translate(-50%, -50%);
+    if (message.value == "") {
+        message.classList.add("is-invalid");
+        message.classList.remove("is-valid");
+        complete = false;
+    } else {
+        message.classList.add("is-valid");
+        message.classList.remove("is-invalid");
     }
 
-    #form {
-        margin-left: auto;
-        margin-right: auto;
+    if (complete) {
+        document.forms["emailForm"].submit();
     }
 
-    .form-group {
-        margin-left: auto;
-        margin-right: auto;
-        width: 300px;
+}
 
+function validate_entry(name) {
+    var form = document.forms["emailForm"];
+    var input = form[name];
+    if (input.value == "") {
+        input.classList.add("is-invalid");
+        input.classList.remove("is-valid");
+    } else {
+        input.classList.add("is-valid");
+        input.classList.remove("is-invalid");
     }
+}
 
-</style>
+
+</script>
 </head>
 <body class="bg-light">
     <!-- wallpaper from https://wallpaperaccess.com/old-writing -->
-    <form method="POST" action="email.php" id="emailForm">
+    <form method="POST" action="email.php" id="emailForm" name="emailForm">
         <h1>Basic Email Demonstration</h1>
         <div id="form">
             <div class="form-group">
                 <label for="fname">First Name</label>
-                <input type="text" name="fname" class="entry form-control">
+                <input type="text" name="fname" class="entry form-control" onblur="validate_entry('fname')">
             </div>
             <div class="form-group">
                 <label for="lname">Last Name</label>
-                <input type="text" name="lname" class="entry form-control">
+                <input type="text" name="lname" class="entry form-control" onblur="validate_entry('lname')">
             </div>
             <div class="form-group">
                 <label for="email" aria-describedby="emailHelp">Email</label>
-                <input type="email" name="email" class="entry form-control">
+                <input type="email" name="email" class="entry form-control" onblur="validate_entry('email')">
                 <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
             </div>
             <div class="form-group">
-                <input type="submit" class="button btn btn-primary disabled">
+                <label for="message">Message</label>
+                <textarea name="message" class="entry form-control" onblur="validate_entry('message')"></textarea>
+            </div>
+            <div class="form-group">
+                <input type="button" value="Submit" class="button btn btn-primary" onclick="validate()">
                 <input type="reset" class="button btn btn-danger">
             </div>
         </div>

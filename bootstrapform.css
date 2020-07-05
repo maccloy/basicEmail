@@ -1,0 +1,35 @@
+input.entry, textarea {
+    width: 300px !important;
+}
+
+textarea {
+    height: 200px;
+}
+
+input.button {
+    width: 145px;
+}
+
+#emailForm {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+#form {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.form-group {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 300px !important;
+
+}
+
+h1 {
+    margin-bottom: 25px;
+}
